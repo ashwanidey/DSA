@@ -1,3 +1,4 @@
+// Inorder traversal
 void MorrisTraversal(node* root)
 {
     node *current, *pre;
@@ -37,4 +38,44 @@ void MorrisTraversal(node* root)
             } /* End of if condition pre->right == NULL */
         } /* End of if condition current->left == NULL*/
     } /* End of while */
+}
+
+// Preorder
+void morrisTraversalPreorder(node* root)
+{	node* curr = root;
+	while (curr)
+	{
+		// If left child is null, print the current node data. Move to
+		// right child.
+		if (curr->left == NULL)
+		{
+			cout<<curr->data<<" ";
+			curr = curr->right;
+		}
+		else
+		{
+			// Find inorder predecessor
+          
+			node* pred = curr->left;
+			while (pred->right && pred->right != curr)
+				pred = pred->right;
+
+			// If the right child of inorder predecessor already points to
+			// this node
+			if (pred->right == curr)
+			{
+				pred->right = NULL;
+				curr = curr->right;
+			}
+
+			// If right child doesn't point to this node, then print this
+			// node and make right child point to this node
+			else
+			{
+				cout<<curr->data<<" ";
+				pred->right = curr;
+				curr = curr->left;
+			}
+		}
+	}
 }
