@@ -1,11 +1,19 @@
-class Solution {
-  public:
-    int getMinDiff(int arr[], int n, int k) {
-        for(int i =0;i<n;i++){
-            if(arr[i] < k) arr[i] += k;
-            else arr[i] -= k;
-        }
-        sort(arr,arr+n);
-        return arr[n-1] - arr[0];
+class Solution{
+    public:
+    // arr: input array
+    // n: size of array
+    //Function to find the sum of contiguous subarray with maximum sum.
+    long long maxSubarraySum(int arr[], int n){
+        
+        long long msf = INT_MIN;
+        long long meh = 0;
+        
+        for(int i = 0 ;i<n;i++){
+            meh += arr[i];
+            if(msf < meh) msf = meh;
+            if(meh < 0) meh = 0;
+        } 
+        return msf;
+        
     }
 };
