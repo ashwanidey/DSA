@@ -1,4 +1,5 @@
 // https://www.geeksforgeeks.org/boyer-moore-majority-voting-algorithm/
+//https://leetcode.com/problems/majority-element/solutions/3676530/3-method-s-beats-100-c-java-python-beginner-friendly/
 
 // Algorithm:
 
